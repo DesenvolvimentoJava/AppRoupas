@@ -1,0 +1,3 @@
+Luizinho;11111111111;Rua Luizinho;eu@luizinho.com.br;
+Joaozinho;22222222222;Rua Joaozinho;eu@joaozinho.com.br;
+Mariazinha;33333333333;Rua Mariazinha;eu@mariazinha.com.br;
