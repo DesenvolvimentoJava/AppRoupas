@@ -36,6 +36,7 @@
 						<th>Senha</th>
 						<th>Telefone</th>
 						<th>Tipo</th>
+						<th>Clientes</th>
 						<th></th>
 					</thead>
 					<tbody>
@@ -50,6 +51,7 @@
 								<td><c:if test="${u.tipo == '1'}">Administrador</c:if> <c:if
 										test="${u.tipo == '2'}">Funcionario</c:if> <c:if
 										test="${u.tipo == '3'}">Cliente</c:if></td>
+								<td>${u.clientes.size()}</td>
 								<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
 							</tr>
 						</c:forEach>

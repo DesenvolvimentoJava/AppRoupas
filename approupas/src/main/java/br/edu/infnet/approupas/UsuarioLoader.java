@@ -7,11 +7,13 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.approupas.model.domain.Usuario;
 import br.edu.infnet.approupas.model.service.UsuarioService;
 
+@Order(1)
 @Component
 public class UsuarioLoader implements ApplicationRunner{
 	
@@ -21,6 +23,16 @@ public class UsuarioLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
+		
+		
+		Usuario userAdmin = new Usuario("Administrador", "admin@admin.com", "123");
+		userAdmin.setSobrenome("Admin");
+		userAdmin.setTel("123");
+		userAdmin.setTipo("1");
+		
+		usuarioService.incluir(userAdmin);
+		
+		System.out.println("Inclusão do Administrador " + userAdmin.getNome() + " realizada com Sucesso!!!");
 		
 String arq = "usuario.txt";
 		

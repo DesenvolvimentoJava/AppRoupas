@@ -1,7 +1,22 @@
 package br.edu.infnet.approupas.model.domain;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "TUsuario")
 public class Usuario {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String sobrenome;
@@ -9,7 +24,11 @@ public class Usuario {
 	private String email;
 	private String tel;
 	private String tipo;
-
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Cliente> clientes;
+	
+	
 	public Usuario() {
 		
 	}
@@ -86,4 +105,16 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+	
+	
+
+	
+	
 }

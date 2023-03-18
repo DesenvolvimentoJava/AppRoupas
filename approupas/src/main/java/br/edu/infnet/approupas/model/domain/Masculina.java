@@ -11,6 +11,8 @@ public class Masculina extends Roupa {
 	private String tamanho;
 	private int porAlgodao;
 	
+
+	
 	
 	public Masculina(int cod_prod, String descricao, float valor, int quantidade) throws ValoresException, QuantidadeException {
 		super(cod_prod, descricao, valor, quantidade);
