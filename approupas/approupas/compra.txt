@@ -1,0 +1,9 @@
+C;Compra 1;true;huguinho;Rua huguinho;eu@huguinho.com;123456789;
+M;12;Camisa;52;3;true;67;G;
+I;123456;Moletom;55;1;true;azul;2;
+I;123456;Camisa;35;1;true;branco;4;
+F;122;Calça;130;3;2022;true;38;
+M;12;Camisa;52;3;true;67;G;
+M;1;Calça;12;5;true;100;P;		
+I;123456;Calça;75;1;false;preta;6;
+			

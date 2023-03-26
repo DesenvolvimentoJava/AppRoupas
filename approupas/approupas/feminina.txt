@@ -1,0 +1,3 @@
+123;calça;999;1;true;P;2020
+124;camiseta;1099;5;true;G;2021
+125;saia;999;4;false;P;2022
