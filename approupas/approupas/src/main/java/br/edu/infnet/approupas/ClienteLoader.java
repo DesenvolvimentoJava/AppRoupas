@@ -46,8 +46,7 @@ public class ClienteLoader implements ApplicationRunner{
 				Cliente cliente = new Cliente(
 						clientes[0], 
 						clientes[1], 
-						clientes[2], 
-						clientes[3]);
+						clientes[2]);
 				
 				cliente.setUsuario(usuario);
 		

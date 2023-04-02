@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.approupas.model.domain.Compra;
 import br.edu.infnet.approupas.model.domain.Usuario;
+import br.edu.infnet.approupas.model.service.ClienteService;
 import br.edu.infnet.approupas.model.service.CompraService;
+import br.edu.infnet.approupas.model.service.RoupaService;
 
 
 
@@ -22,6 +24,12 @@ public class CompraController {
 	@Autowired
 	private CompraService compraService;
 	
+	@Autowired
+	private ClienteService clienteService;
+	
+	@Autowired
+	private RoupaService roupaService;
+	
 	private String msg;
 	
 	public CompraController() {
@@ -29,7 +37,12 @@ public class CompraController {
 	}
 	
 	@GetMapping(value = "/compra")
-	public String telaCadastro() {
+	public String telaCadastro(Model model, @SessionAttribute("usuario") Usuario usuario) {
+		
+		model.addAttribute("clientes", clienteService.obterLista(usuario));
+		
+		model.addAttribute("roupas", roupaService.obterLista(usuario));
+		
 		return "compra/cadastro";
 	}
 
@@ -62,9 +75,14 @@ public class CompraController {
 		
 		Compra compra = compraService.obterPorId(id);
 		
-		compraService.excluir(id);
+		try {
+			compraService.excluir(id);
+			
+			msg = "A exclusão do pedido ("+ compra.getDescricao() +") foi realizada com SUCESSO!!!";
+		} catch (Exception e) {
+			msg = "Impossivel realizar a exclusão do pedido ("+ compra.getDescricao() +") !!!";
+		}
 		
-		msg = "A exclusão do pedido ("+ compra.getDescricao() +") foi realizada com SUCESSO!!!";
 		
 		
 		return "redirect:/compra/lista";

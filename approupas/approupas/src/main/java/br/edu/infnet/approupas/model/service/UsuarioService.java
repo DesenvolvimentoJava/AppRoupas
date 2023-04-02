@@ -3,6 +3,8 @@ package br.edu.infnet.approupas.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.approupas.model.domain.Usuario;
@@ -16,7 +18,7 @@ public class UsuarioService {
 	
 	
 	public Usuario autenticar(Usuario usuario) {
-		return usuarioRepository.autenticacao(usuario.getEmail(), usuario.getSenha());
+		return usuarioRepository.autenticacao(usuario.getEmail(), usuario.getSenha(), Sort.by(Direction.ASC, "nome"));
 	}
 	
 

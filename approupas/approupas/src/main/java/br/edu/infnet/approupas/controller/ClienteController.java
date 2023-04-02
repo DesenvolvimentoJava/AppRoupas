@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.approupas.model.domain.Cliente;
+import br.edu.infnet.approupas.model.domain.Endereco;
 import br.edu.infnet.approupas.model.domain.Usuario;
 import br.edu.infnet.approupas.model.service.ClienteService;
 
@@ -27,6 +28,7 @@ public class ClienteController {
 	public ClienteController() {
 		
 	}
+	
 	
 	@GetMapping(value = "/cliente")
 	public String telaCadastro() {
@@ -46,9 +48,11 @@ public class ClienteController {
 	}
 
 	@PostMapping(value = "/cliente/incluir")
-	public String incluir(Cliente cliente, @SessionAttribute("usuario") Usuario usuario) {
+	public String incluir(Cliente cliente,Endereco endereco, @SessionAttribute("usuario") Usuario usuario) {
 
 		cliente.setUsuario(usuario);
+		cliente.setEndereco(endereco);
+		
 		clienteService.incluir(cliente);
 		
 		msg = "A inclusão do cliente " + cliente.getNome() + " foi realizada com SUCESSO!!!";
@@ -63,7 +67,14 @@ public class ClienteController {
 		
 		clienteService.excluir(id);
 		
-		msg = "A exclusão do cliente ("+id+") foi realizada com SUCESSO!!!";
+		try {
+			clienteService.excluir(id);
+			
+			msg = "A exclusão do cliente ("+id+") foi realizada com SUCESSO!!!";
+		} catch (Exception e) {
+			msg = "Impossivel realizar a exclusão do Cliente ("+id+")!!!";
+		}
+		
 		
 		
 		return "redirect:/cliente/lista";

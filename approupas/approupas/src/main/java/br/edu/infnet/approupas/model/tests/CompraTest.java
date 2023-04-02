@@ -123,7 +123,7 @@ public class CompraTest {
 
 
 		try {
-			Compra comp1 = new Compra(new Cliente("huguinho", "1234567891011", "Rua huguinho, 1", "eu@huguinho.com"), pedido1);
+			Compra comp1 = new Compra(new Cliente("huguinho", "1234567891011", "eu@huguinho.com"), pedido1);
 			comp1.setDescricao("Primeira Compra");
 			comp1.setLoja(false);
 			comp1.imprimir();
@@ -132,7 +132,7 @@ public class CompraTest {
 		}
 		
 		try {
-			Compra comp2 = new Compra(new Cliente("huguinho", "1234567891011", "Rua huguinho, 1", "eu@huguinho.com"), pedido2);
+			Compra comp2 = new Compra(new Cliente("huguinho", "1234567891011", "eu@huguinho.com"), pedido2);
 			comp2.setDescricao("Segunda Compra");
 			comp2.setLoja(true);
 //			comp2.setCliente(new Cliente("huguinho", "1234567891011", "Rua huguinho, 1", "eu@huguinho.com"));
@@ -143,7 +143,7 @@ public class CompraTest {
 		}
 
 		try {
-			Compra comp3 = new Compra(new Cliente("joaozinho", "1234567891011", "Rua joaozinho, 2", "eu@joaozinho.com"), pedido3);
+			Compra comp3 = new Compra(new Cliente("joaozinho", "1234567891011", "eu@joaozinho.com"), pedido3);
 			comp3.setDescricao("Terceira Compra");
 			comp3.setLoja(true);
 			comp3.imprimir();
@@ -152,7 +152,7 @@ public class CompraTest {
 		}
 
 		try {
-			Compra comp4 = new Compra(new Cliente("mariazinha", "1234567891011", "Rua mariazinha, 3", "eu@mariazinha.com"), null);
+			Compra comp4 = new Compra(new Cliente("mariazinha", "1234567891011", "eu@mariazinha.com"), null);
 			comp4.setDescricao("Quartar Compra");
 			comp4.setLoja(false);
 			comp4.imprimir();
@@ -165,7 +165,7 @@ public class CompraTest {
 			
 			Compra comp5 = new Compra(null, pedido4);
 			comp5.setDescricao("Quartar Compra");
-			comp5.setCliente(new Cliente("mariazinha", "1234567891011", "Rua mariazinha, 3", "eu@mariazinha.com"));
+			comp5.setCliente(new Cliente("mariazinha", "1234567891011", "eu@mariazinha.com"));
 			comp5.setLoja(false);
 			comp5.imprimir();
 		} catch (ClienteInvalidoException | CompraSemClienteException | CompraSemRoupasException e) {

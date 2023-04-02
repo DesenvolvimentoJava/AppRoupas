@@ -47,7 +47,7 @@ public class AquivoTest {
 				switch (campos[0].toUpperCase()) {
 				case "C":
 					try {
-						compra = new Compra(new Cliente(campos[3], campos[6],campos[4],campos[5]), pedido);
+						compra = new Compra(new Cliente(campos[3], campos[6],campos[4]), pedido);
 						compra.setDescricao(campos[1]);
 						compra.setLoja(Boolean.valueOf(campos[2]));
 					} catch (ClienteInvalidoException | CompraSemClienteException | CompraSemRoupasException  e) {

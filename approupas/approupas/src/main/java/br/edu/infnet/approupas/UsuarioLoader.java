@@ -29,6 +29,7 @@ public class UsuarioLoader implements ApplicationRunner{
 		userAdmin.setSobrenome("Admin");
 		userAdmin.setTel("123");
 		userAdmin.setTipo("1");
+		userAdmin.setAdmin(true);
 		
 		usuarioService.incluir(userAdmin);
 		

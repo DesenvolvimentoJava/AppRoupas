@@ -46,7 +46,7 @@
  									<td>${co.data}</td> 
 									<td>${co.cliente.nome}</td>
 									<td>${co.roupas.size()}</td>
-									<td><a href="/roupa/${co.id}/excluir">Excluir</a></td>
+									<td><a href="/compra/${co.id}/excluir">Excluir</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -62,7 +62,15 @@ public class InfantilController {
 		
 		infantilService.excluir(id);
 		
-		msg = "A exclusão da Roupa Infantil ("+id+") foi realizada com SUCESSO!!!";
+		try {
+			
+			infantilService.excluir(id);
+			msg = "A exclusão da Roupa Infantil ("+id+") foi realizada com SUCESSO!!!";
+		} catch (Exception e) {
+			msg = "Inpossivel realizar a exclusão da Roupa Infantil ("+id+") !!!";
+		}
+		
+		
 		
 		
 		return "redirect:/infantil/lista";

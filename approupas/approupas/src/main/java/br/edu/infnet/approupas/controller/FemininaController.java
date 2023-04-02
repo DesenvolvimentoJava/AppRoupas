@@ -61,9 +61,17 @@ public class FemininaController {
 	@GetMapping(value = "/feminina/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		femininaService.excluir(id);
+		try {
+			
+			femininaService.excluir(id);
+			
+			msg = "A exclusão da Roupa Feminina ("+id+") foi realizada com SUCESSO!!!";
+		} catch (Exception e) {
+			
+			msg = "Impossivel realizar a exclusão da Roupa Feminina ("+id+")!!!";
+		}
 		
-		msg = "A exclusão da Roupa Feminina ("+id+") foi realizada com SUCESSO!!!";
+		
 		
 		
 		return "redirect:/feminina/lista";

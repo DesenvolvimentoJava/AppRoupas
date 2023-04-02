@@ -2,12 +2,14 @@ package br.edu.infnet.approupas.model.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -24,15 +26,19 @@ public class Usuario {
 	private String email;
 	private String tel;
 	private String tipo;
-	@OneToMany
+	private boolean admin;
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
 	private List<Cliente> clientes;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
 	private List<Roupa> roupas;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
 	private List<Compra> compras;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name ="idEndereco")
+	private Endereco endereco;
 	
 	public Usuario() {
 		
@@ -132,6 +138,22 @@ public class Usuario {
 
 	public void setCompras(List<Compra> compras) {
 		this.compras = compras;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	

@@ -32,7 +32,7 @@
 							<th>Id</th>
 							<th>Nome</th>
 							<th>CPF</th>
-							<th>Endereço</th>
+<!-- 							<th>Endereço</th> -->
 							<th>E-mail</th>
 							<th>Usuario</th>
 							<th></th>
@@ -43,7 +43,7 @@
 									<td>${c.id}</td>
 									<td>${c.nome}</td>
 									<td>${c.cpf}</td>
-									<td>${c.endereco}</td>
+<%-- 									<td>${c.endereco}</td> --%>
 									<td>${c.email}</td>
 									<td>${c.usuario.nome}</td>
 									<td><a href="/cliente/${c.id}/excluir">Excluir</a></td>

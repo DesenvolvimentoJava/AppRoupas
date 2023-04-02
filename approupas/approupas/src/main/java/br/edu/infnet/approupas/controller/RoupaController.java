@@ -47,10 +47,15 @@ public class RoupaController {
 		
 		Roupa roupa = roupaService.obterPorId(id);
 		
-		roupaService.excluir(id);
 		
-		msg = "A exclusão da Roupa (" + roupa.getDescricao() +") foi realizada com SUCESSO!!!";
-		
+		try {
+			roupaService.excluir(id);
+			
+			msg = "A exclusão da Roupa (" + roupa.getDescricao() +") foi realizada com SUCESSO!!!";
+		} catch (Exception e) {
+			msg = "Impossivel realizar a exclusão do produto (" + roupa.getDescricao() +") !!!";
+		}
+			
 		
 		return "redirect:/roupa/lista";
 	}

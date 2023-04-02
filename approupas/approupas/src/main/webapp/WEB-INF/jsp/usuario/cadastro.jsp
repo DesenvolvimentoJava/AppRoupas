@@ -12,6 +12,12 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container mt-5 d-flex flex-column align-items-center border border-2 rounded pt-5 pb-5">
+		<form action="/cep" class="form-inline" method="post">
+			<label>CEP:</label>
+			<input type="text" name="cep" value="24400500" class="form-conytol">
+			<button type="submit" class="btn btn-primary">Buscar</button>
+		</form>
+	
 		<h2>Cadastro de Usuário</h2>
 		<form action="/usuario/incluir" method="post" class="w-50" >
 	    	<input type="text" class="form-control form-control-lg mt-3" placeholder="Nome" name="nome">
@@ -19,10 +25,11 @@
 	    	<input type="text" class="form-control form-control-lg mt-3" placeholder="E-mail" name="email">
 	    	<input type="password" class="form-control form-control-lg mt-3" placeholder="senha" name="senha">
 	    	<input type="text" class="form-control form-control-lg mt-3" placeholder="Telefone" name="tel">
+	    	<c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"/>
 	    	<label>Tipo:</label>
 	    	<div class="d-flex justify-content-around">
 		    	<div class="form-check form-switch mt-3">
-		    		<label class="form-check-label" for="adm">Administrador</label>
+		    		<label class="form-check-label" for="adm">Fornecedor</label>
 	  				<input class="form-check-input" type="radio" id="adm" name="tipo" value="1">
 	  			</div>
 	  			<div class="form-check form-switch mt-3">

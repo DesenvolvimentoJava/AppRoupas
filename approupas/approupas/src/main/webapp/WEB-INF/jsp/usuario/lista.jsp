@@ -36,9 +36,14 @@
 						<th>Senha</th>
 						<th>Telefone</th>
 						<th>Tipo</th>
+						<th>Admin</th>
+						<th>Endereço</th>
 						<th>Clientes</th>
 						<th>Roupas</th>
-						<th></th>
+						<th>Compras</th>
+						<c:if test="${usuario.admin}">
+							<th></th>
+						</c:if>
 					</thead>
 					<tbody>
 						<c:forEach var="u" items="${usuarios}">
@@ -49,12 +54,17 @@
 								<td>${u.email}</td>
 								<td>${u.senha}</td>
 								<td>${u.tel}</td>
-								<td><c:if test="${u.tipo == '1'}">Administrador</c:if> <c:if
-										test="${u.tipo == '2'}">Funcionario</c:if> <c:if
+								<td><c:if test="${u.tipo == '1'}">Fornecedor</c:if> <c:if
+										test="${u.tipo == '2'}">Funcionario</c:if> <c:if 
 										test="${u.tipo == '3'}">Cliente</c:if></td>
+								<td>${u.admin}</td>
+								<td>${u.endereco}</td>
 								<td>${u.clientes.size()}</td>
 								<td>${u.roupas.size()}</td>
-								<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
+								<td>${u.compras.size()}</td>
+								<c:if test="${usuario.admin}">
+									<td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
+								</c:if>
 							</tr>
 						</c:forEach>
 					</tbody>
